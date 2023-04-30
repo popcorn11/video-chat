@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Call</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.3.1/peerjs.min.js.map"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <audio src="chat_request.mp3" id="chatAudio"></audio>
+    <div class="overlay hide" onclick="hideInvitePopup()"></div>
+    <div class="invitePop hide">
+        <input type="text" value="..." id="roomLink" readonly />
+        <button onclick="copyToClipboard()">Copy</button>
+    </div>
+    <div class="main_alert hide">
+        <p id="alert"></p>
+    </div>
+
+    <div class="main">
+        <!-- video area -->
+        <div class="main__videos">
+            <div id="video-grid">
+                
+            </div>
+        </div>
+
+        <div class="main__controls">
+            <div class="main__controls_block">
+                <div class="main__controls_button" id="muteButton">
+                    <i class="fa fa-microphone"></i>
+                    <!-- <span>Mute</span> -->
+                </div>
+
+                <div class="main__controls_button" id="playPauseButton">
+                    <i class="fa fa-video-camera"></i>
+                    <!-- <span>On</span> -->
+                </div>
+
+                <div class="main__controls_button" onclick="showInvitePopup()">
+                    <i class="fa fa-user-plus"></i>
+                    <!-- <span>Invite people</span> -->
+                </div>
+
+                <div class="main__controls_button leave-call">
+                    <a href="/leave">
+                        <i class="fas fa-phone-slash"></i>
+                        <!-- <span>Leave</span> -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const roomID = "<%= roomID %>"
+    // alert(roomID)
+</script>
+<script src="script.js"></script>
+</html>
